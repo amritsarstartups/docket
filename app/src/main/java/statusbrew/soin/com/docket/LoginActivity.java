@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                              //  Toast.makeText(LoginActivity.this, ""+response, Toast.LENGTH_LONG).show();
+
                                // Toast.makeText(LoginActivity.this, ""+response, Toast.LENGTH_LONG).show();
                                /* if (response.equals("OK")) {
                                     Toast.makeText(LoginActivity.this,"lolol",Toast.LENGTH_SHORT).show();
@@ -79,13 +79,12 @@ public class LoginActivity extends AppCompatActivity {
                                 }*/
                                 if(response.equals("Incorrect ID or Password!")){
 
-
+                                    Toast.makeText(LoginActivity.this, ""+response, Toast.LENGTH_LONG).show();
                                 }
                             else
-                                {/*
-                                    startActivity(new Intent(getApplication(), MainActivity.class));
-                                    finish();*/
+                                {
                                 try{
+
                                     JSONObject jsonObject = null;
                                     jsonObject = new JSONObject(response);
 
@@ -95,8 +94,24 @@ public class LoginActivity extends AppCompatActivity {
                                     String BLOODGROUP = jsonObject.getString("bloodgroup");
                                     String CITY = jsonObject.getString("city");
                                     String STATE = jsonObject.getString("state");
-                                    Toast.makeText(LoginActivity.this,BLOODGROUP+""+EMAIL+""+NAME,Toast.LENGTH_LONG).show();
-                                }catch(JSONException e){
+
+                                    SharedPreferences sharedPreferences = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("email", EMAIL);
+                                    editor.putString("password",pass );
+                                    editor.putString("city", CITY);
+                                    editor.putString("state", STATE);
+                                    editor.putString("name", NAME);
+                                    editor.putString("phone", PHONE);
+                                    editor.putString("bloodgroup", BLOODGROUP);
+
+                                    editor.commit();
+
+                                    startActivity(new Intent(getApplication(), MainActivity.class));
+                                    finish();
+                                   // Toast.makeText(LoginActivity.this,BLOODGROUP+""+EMAIL+""+NAME,Toast.LENGTH_LONG).show();
+                                }
+                                catch(JSONException e){
 
                                 }
 

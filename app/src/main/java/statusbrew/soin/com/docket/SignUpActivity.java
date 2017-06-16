@@ -131,16 +131,22 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, ""+response, Toast.LENGTH_LONG).show();
                                 if (response.equals("Registered successfully!")) {
 
-                               /* SharedPreferences sharedPreferences = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("email", email);
                                 editor.putString("password", password);
+                                    editor.putString("city", city);
+                                    editor.putString("state", state);
+                                    editor.putString("name", name);
+                                    editor.putString("phone", phone);
+                                    editor.putString("bloodgroup", bloodgroup);
 
-                                editor.commit();*/
+                                    editor.commit();
                                     startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                                     finish();
                                 }
                                 else{
+
                                 }
 
                             }

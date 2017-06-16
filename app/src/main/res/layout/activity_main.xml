@@ -6,19 +6,16 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     tools:context="statusbrew.soin.com.docket.MainActivity"
+    android:gravity="bottom"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-         />
+
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/floatingMenu"
-        android:layout_gravity="bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
@@ -31,7 +28,7 @@
             android:id="@+id/add_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fabdonate"
+            android:src="@drawable/ic_add_white_24dp"
             fab:fab_size="normal"
             fab:fab_label="Donate"
             fab:fab_colorNormal="@color/FABNormal"
@@ -42,7 +39,7 @@
             android:id="@+id/add_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fabreciever"
+            android:src="@drawable/ic_add_white_24dp"
             fab:fab_size="normal"
             fab:fab_label="Recieve"
             fab:fab_colorNormal="@color/FABNormal"
