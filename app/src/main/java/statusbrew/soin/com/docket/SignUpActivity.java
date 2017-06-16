@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ArrayAdapter<CharSequence> bloodgroupadapter;
     String bloodgrp;
     public static final String REGISTER_URL = "http://sbcon.cmcderm.org/api/register";
-    String state1="Andaman and Nicobar Islands";
+    private  String state1="Andaman and Nicobar Islands";
      ArrayList<String> cityList;
     private String TAG = MainActivity.class.getSimpleName();
     String query;
@@ -66,7 +66,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         ArrayAdapter stateadapter=new ArrayAdapter(SignUpActivity.this,android.R.layout.simple_spinner_dropdown_item,MainActivity.states);
         spState.setAdapter(stateadapter);
-
 
         spState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -126,18 +125,19 @@ public class SignUpActivity extends AppCompatActivity {
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, REGISTER_URL,
                         new Response.Listener<String>() {
+
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(SignUpActivity.this, ""+response, Toast.LENGTH_LONG).show();
-                                if (response.equals("Registered successfully")) {
+                                if (response.equals("Registered successfully!")) {
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+                               /* SharedPreferences sharedPreferences = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("email", email);
                                 editor.putString("password", password);
 
-                                editor.commit();
-                                    startActivity(new Intent(getApplication(), MainActivity.class));
+                                editor.commit();*/
+                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                                     finish();
                                 }
                                 else{

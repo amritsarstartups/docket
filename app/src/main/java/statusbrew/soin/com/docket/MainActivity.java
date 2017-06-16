@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
             "Uttarakhand",
             "West Bengal"};
      //URL to get contacts JSON
-    public static ArrayList<String> cityList;
-    String query;
     String state1="Andaman and Nicobar Islands";
     private static String url = "http://sbcon.cmcderm.org/api/fetch_cities?state=";
 

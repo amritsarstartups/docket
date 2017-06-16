@@ -29,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                              //  Toast.makeText(LoginActivity.this, ""+response, Toast.LENGTH_LONG).show();
                                // Toast.makeText(LoginActivity.this, ""+response, Toast.LENGTH_LONG).show();
                                /* if (response.equals("OK")) {
                                     Toast.makeText(LoginActivity.this,"lolol",Toast.LENGTH_SHORT).show();
@@ -75,14 +77,31 @@ public class LoginActivity extends AppCompatActivity {
                                     startActivity(new Intent(getApplication(), MainActivity.class));
                                     finish();
                                 }*/
-                                if(response.equals("Logged in")){
-                                    Toast.makeText(LoginActivity.this,"Successfully login",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplication(), MainActivity.class));
-                                finish();
+                                if(response.equals("Incorrect ID or Password!")){
+
+
                                 }
                             else
-                                {
-                                    Toast.makeText(LoginActivity.this,"Login failed try again",Toast.LENGTH_SHORT).show();
+                                {/*
+                                    startActivity(new Intent(getApplication(), MainActivity.class));
+                                    finish();*/
+                                try{
+                                    JSONObject jsonObject = null;
+                                    jsonObject = new JSONObject(response);
+
+                                    String NAME = jsonObject.getString("name");
+                                    String EMAIL = jsonObject.getString("email");
+                                    String PHONE = jsonObject.getString("phone");
+                                    String BLOODGROUP = jsonObject.getString("bloodgroup");
+                                    String CITY = jsonObject.getString("city");
+                                    String STATE = jsonObject.getString("state");
+                                    Toast.makeText(LoginActivity.this,BLOODGROUP+""+EMAIL+""+NAME,Toast.LENGTH_LONG).show();
+                                }catch(JSONException e){
+
+                                }
+
+
+
                                 }}
 
                         },
