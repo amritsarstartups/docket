@@ -15,3 +15,5 @@ How to use:
 -You need to connect the database with your Laravel app by making changes in App/Config and .env file
 -You also need to adjust the .htaccess file according to the structure of your directory.
 
+my presentation link 
+https://www.slideshare.net/PiyushGupta365/docket-77145426
